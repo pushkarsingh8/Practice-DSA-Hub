@@ -20,7 +20,7 @@ class LinkedList:
             result = result+ str(curr.data) +"->"
             #iteration
             curr = curr.next
-        return result[:-2]
+        return result[:-2] 
     
     
     def __len__(self):
@@ -51,6 +51,26 @@ class LinkedList:
         curr.next = new_node
         
         self.n = self.n + 1
+        
+        
+    def insert_after(self,after,value):
+        
+        new_node = Node(value)
+        curr = self.head
+     
+        while curr != None:
+            if curr.data == after:
+                break
+            curr = curr.next 
+            
+        if curr != None:
+            new_node.next = curr.next  #make connection after 3 value store address in new node
+            curr.next = new_node 
+            self.n +=1
+        
+        else:
+            return "Item Not Found" 
+            
          
         
         
@@ -63,6 +83,9 @@ L.insert_head(2)
 L.insert_head(3)
 L.insert_head(4)
 L.append(4)
+
+L.insert_after(1,50)
+
 
 
 print(L)
