@@ -37,9 +37,11 @@ class LinkedList:
         
     def append(self,value):
         new_node = Node(value)
+        
         if self.head == None:
             self.head  = new_node
             self.n = self.n+1
+            return
             
         curr = self.head
         
@@ -47,6 +49,8 @@ class LinkedList:
             curr = curr.next
             
         curr.next = new_node
+        
+        self.n = self.n + 1
          
         
         
