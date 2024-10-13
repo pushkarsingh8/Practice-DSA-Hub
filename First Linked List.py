@@ -5,6 +5,18 @@ class Node:
     def __init__(self,value):
         self.data = value
         self.next = None
+class Linked_List:        
+        
+    def __str__(self):
+        curr = a
+        result = ""
+        
+        while curr != None:
+            
+            result = result + str(curr.data) + "->"
+            curr = curr.next
+        return result[:-2]     
+
         
 #These Objects   
 a = Node(1)
@@ -15,11 +27,6 @@ c = Node(3)
 a.next = b
 b.next = c
 
-result = ""
-curr = a
+l = Linked_List()
 
-while curr != None:
-    result = result + str(curr.data) + "->"  
-    curr = curr.next
-
-print(result[:-2])    
+print(l)
