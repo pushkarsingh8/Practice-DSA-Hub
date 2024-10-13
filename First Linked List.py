@@ -6,12 +6,20 @@ class Node:
         self.data = value
         self.next = None
         
-    
-    
-a = Node(5)
-b = Node(8)
-c = Node(9)
+#These Objects   
+a = Node(1)
+b = Node(2)
+c = Node(3)
+
+#Making connection of each Nodes
 a.next = b
 b.next = c
 
-print(id(a))
+result = ""
+curr = a
+
+while curr != None:
+    result = result + str(curr.data) + "->"  
+    curr = curr.next
+
+print(result[:-2])    
