@@ -5,7 +5,10 @@ class Node:
     def __init__(self,value):
         self.data = value
         self.next = None
-class Linked_List:        
+class Linked_List:      
+    def __init__(self):
+        head = None
+        self.n = 0  
         
     def __str__(self):
         curr = a
