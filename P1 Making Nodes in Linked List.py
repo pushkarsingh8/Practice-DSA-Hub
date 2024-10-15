@@ -20,7 +20,7 @@ class LinkedList:
             result = result+ str(curr.data) +"->"
             #iteration
             curr = curr.next
-        return result[:-2] 
+        return result[:-2] if result else 'Empty LL'
     
     
     def __len__(self):
@@ -70,6 +70,41 @@ class LinkedList:
         
         else:
             return "Item Not Found" 
+        
+    def clear(self):
+        self.head = None
+        self.n = 0
+        
+        
+    def delete_head(self):
+        #delete a node to starting point
+        if self.head == None:
+            return 'Empty LL'
+        self.head = self.head.next
+        self.n-=1
+        
+        
+    def delete_tail(self):
+        curr = self.head
+        
+        #check
+        if curr == None:
+            return "empty LL"
+            
+        
+        # if curr.next == none hai jo ki next node nhi hai so you delete a head 
+        if curr.next == None:
+            return self.delete_head()
+            
+        while curr.next.next != None:
+            curr = curr.next
+            
+        #2 last node in LL
+        curr.next = None   
+        self.n-=1
+                
+        
+        
             
          
         
@@ -85,7 +120,15 @@ L.insert_head(4)
 L.append(4)
 
 L.insert_after(1,50)
+L.delete_tail()
+L.delete_tail()
+L.delete_tail()
+L.delete_tail()
+L.delete_tail()
+L.delete_tail()
+L.delete_tail()
+L.delete_tail()
+print(len(L))
 
 
-
-print(L)
+print("Output",L)
