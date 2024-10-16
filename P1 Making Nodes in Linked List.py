@@ -84,12 +84,13 @@ class LinkedList:
         self.n-=1
         
         
-    def delete_tail(self):
-        curr = self.head
+    def pop(self):
         
         #check
-        if curr == None:
+        if self.head == None:
             return "empty LL"
+        
+        curr = self.head
             
         
         # if curr.next == none hai jo ki next node nhi hai so you delete a head 
@@ -99,11 +100,56 @@ class LinkedList:
         while curr.next.next != None:
             curr = curr.next
             
-        #2 last node in LL
+        #2nd last node in LL
         curr.next = None   
         self.n-=1
-                
         
+        
+        
+        
+    def remove(self,value):
+        curr = self.head
+        
+        if self.head == None:
+            print( 'Empty LL')
+            return
+        
+        
+        if self.head.data == value:
+
+            return self.delete_head()
+        
+
+        
+        while curr.next != None:
+            
+            if curr.next.data == value:
+                break
+                    
+            curr = curr.next
+                
+                
+        if curr.next == None:
+             print("Not found")
+             
+        else:
+            curr.next = curr.next.next
+            self.n = self.n-1
+            
+            
+            
+    def search(self,item):
+        curr = self.head
+        pos = 0
+        
+        while curr != None:
+            if curr.data == item:
+                return pos
+            curr = curr.next
+            pos = pos+1
+            
+        return "Not found"
+
         
             
          
@@ -113,22 +159,13 @@ class LinkedList:
 
 
 L = LinkedList()
-L.insert_head(1)
-L.insert_head(2)
-L.insert_head(3)
-L.insert_head(4)
-L.append(4)
 
-L.insert_after(1,50)
-L.delete_tail()
-L.delete_tail()
-L.delete_tail()
-L.delete_tail()
-L.delete_tail()
-L.delete_tail()
-L.delete_tail()
-L.delete_tail()
-print(len(L))
+L.insert_head(10)
+L.insert_after(10,9)
+L.insert_after(9,8)
+L.insert_after(8,5)
+
+print(L.search(5)) 
 
 
 print("Output",L)
