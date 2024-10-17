@@ -137,7 +137,7 @@ class LinkedList:
             self.n = self.n-1
             
             
-            
+    #search based on item find
     def search(self,item):
         curr = self.head
         pos = 0
@@ -149,6 +149,21 @@ class LinkedList:
             pos = pos+1
             
         return "Not found"
+    
+    #search based on index find
+    def search_idx(self,index):
+        
+        curr = self.head
+        pos = 0
+        
+        while curr!=None:
+            if index == pos:
+                return curr.data
+            curr = curr.next
+            pos+=1
+            
+        return "Index error"
+        
 
         
             
@@ -165,7 +180,8 @@ L.insert_after(10,9)
 L.insert_after(9,8)
 L.insert_after(8,5)
 
-print(L.search(5)) 
+
+print(L.search_idx(0))
 
 
 print("Output",L)
