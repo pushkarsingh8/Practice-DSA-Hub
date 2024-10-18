@@ -151,7 +151,7 @@ class LinkedList:
         return "Not found"
     
     #search based on index find
-    def search_idx(self,index):
+    def __getitem__(self,index):
         
         curr = self.head
         pos = 0
@@ -165,6 +165,33 @@ class LinkedList:
         return "Index error"
         
 
+    def __delitem__(self,idx):
+        
+        if idx == 0:
+            self.delete_head()
+            return
+        
+        if self.head == None:
+            return "Empty Linked List"
+        
+        
+        
+        curr = self.head
+        pos = 0
+        
+        
+        
+        while curr!=None:
+            if pos +1 == idx:
+                curr.next = curr.next.next
+                self.n-=1
+                return
+                
+            curr = curr.next
+            pos+=1
+            
+        return "Index Error"
+                
         
             
          
@@ -181,7 +208,8 @@ L.insert_after(9,8)
 L.insert_after(8,5)
 
 
-print(L.search_idx(0))
+print(L[1])
+del L[1]
 
 
 print("Output",L)
