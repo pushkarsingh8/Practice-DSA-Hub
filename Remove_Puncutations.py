@@ -17,9 +17,9 @@ class LinkedList:
         curr = self.head
         result = ""
         while curr!=None:
-            result = result + str(curr.data) + "->"
+            result = result + str(curr.data) #+ "->"
             curr = curr.next
-        return result[:-2] if result else 'Empty LL'
+        return result if result else 'Empty LL'
         
                         
     def insert_head(self,value):
@@ -34,11 +34,11 @@ class LinkedList:
         new_node = Node(value)
         
         if self.head == None:
-            new_node = self.head
+            self.head = new_node
             return new_node
         else:
             curr = self.head
-            while curr!=None:
+            while curr.next!=None:
                 curr = curr.next
                 
             curr.next = new_node
@@ -61,5 +61,14 @@ class LinkedList:
             
 l = LinkedList()
 
-l.add(5)
-print(l)
+word_list = 'The/*sky*/is/*blue'
+for letter in word_list:
+    l.add(letter)
+print("*Before Remove Punctuations: ",l)
+
+
+
+l.remove_punc()
+    
+    
+print("*After Remove Punctuations:",l)
