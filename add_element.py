@@ -32,6 +32,7 @@ class linked_list:
                 curr = curr.next
             
             curr.next = new_node #add node in last of node
+            self.n+=1
 
 
 l = linked_list()
